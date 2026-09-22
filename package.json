@@ -1,0 +1,41 @@
+{
+  "name": "agent-memory-vault",
+  "version": "1.0.0",
+  "description": "Zero-dependency, local persistent memory vault for AI coding agents",
+  "main": "bin/cli.js",
+  "bin": {
+    "agent-memory-vault": "./bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    "memory-vault/",
+    "AGENTS.md"
+  ],
+  "scripts": {
+    "test": "python memory-vault/memory.py status"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thehonored1ne/agent-memory-vault.git"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "memory",
+    "persistent-memory",
+    "antigravity",
+    "cursor",
+    "claude",
+    "copilot",
+    "windsurf"
+  ],
+  "author": "thehonored1ne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thehonored1ne/agent-memory-vault/issues"
+  },
+  "homepage": "https://github.com/thehonored1ne/agent-memory-vault#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
