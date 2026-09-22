@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/agent-memory-vault.svg)](https://www.npmjs.com/package/agent-memory-vault)
 [![npm downloads](https://img.shields.io/npm/dm/agent-memory-vault.svg)](https://www.npmjs.com/package/agent-memory-vault)
+[![CI](https://github.com/thehonored1ne/agent-memory-vault/actions/workflows/ci.yml/badge.svg)](https://github.com/thehonored1ne/agent-memory-vault/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A zero-dependency, local persistent memory architecture for AI coding agents. 
