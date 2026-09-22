@@ -68,7 +68,7 @@ function handleInit() {
   const pyResult = spawnSync(pythonCmd, ['memory-vault/memory.py', 'init'], {
     cwd: targetDir,
     stdio: 'inherit',
-    shell: true
+    shell: false
   });
 
   if (pyResult.error) {
@@ -80,7 +80,7 @@ function handleInit() {
   }
 }
 
-// Forward any other command directly to python engine
+// Forward any other command directly to python engine safely without shell
 if (command === 'init') {
   handleInit();
 } else {
@@ -88,11 +88,12 @@ if (command === 'init') {
   const scriptPath = path.join(targetVaultDir, 'memory.py');
 
   if (fs.existsSync(scriptPath)) {
-    spawnSync(pythonCmd, ['memory-vault/memory.py', ...args], {
+    const result = spawnSync(pythonCmd, ['memory-vault/memory.py', ...args], {
       cwd: targetDir,
       stdio: 'inherit',
-      shell: true
+      shell: false
     });
+    process.exit(result.status || 0);
   } else {
     console.error(`\n[!] Error: 'memory-vault/memory.py' not found in this folder.`);
     console.error(`    Run 'npx agent-memory-vault init' first to set up the vault.\n`);
