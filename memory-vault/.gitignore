@@ -1,0 +1,4 @@
+.system/
+.obsidian/workspace.json
+*.pyc
+__pycache__/
