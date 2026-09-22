@@ -3,7 +3,9 @@
   "version": "1.0.1",
   "description": "Zero-dependency, local persistent memory vault for AI coding agents",
   "main": "bin/cli.js",
-  "bin": "./bin/cli.js",
+  "bin": {
+    "agent-memory-vault": "bin/cli.js"
+  },
   "files": [
     "bin/",
     "memory-vault/",
