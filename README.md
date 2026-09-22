@@ -1,5 +1,9 @@
 # Agent Memory Vault (`agent-memory-vault`)
 
+[![npm version](https://img.shields.io/npm/v/agent-memory-vault.svg)](https://www.npmjs.com/package/agent-memory-vault)
+[![npm downloads](https://img.shields.io/npm/dm/agent-memory-vault.svg)](https://www.npmjs.com/package/agent-memory-vault)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 A zero-dependency, local persistent memory architecture for AI coding agents. 
 
 Designed to prevent context degradation, eliminate hallucinations, resolve contradictory instructions, and stop token waste across software projects.
@@ -45,27 +49,44 @@ Built entirely on the Python Standard Library (`sqlite3` with FTS5, `pathlib`, `
 
 ## Quickstart
 
-### Step 1: Copy to Project
-Copy `memory-vault/` and `AGENTS.md` into your project root:
-```
-my-project/
-├── memory-vault/
-└── AGENTS.md
+### Option 1: Instant Setup via npx (Recommended)
+
+Run directly in the root of any existing project:
+
+```bash
+npx agent-memory-vault init
 ```
 
-### Step 2: Initialize
-Run the setup command:
+Or install globally for use across all local repositories:
+
+```bash
+npm install -g agent-memory-vault
+agent-memory-vault init
+```
+
+This single command automatically:
+- Scaffolds `memory-vault/` and configures `AGENTS.md` without overwriting existing project rules.
+- Analyzes project files to auto-detect your stack (Laravel, Next.js, Vite, Pest, Python, etc.) and writes them to `profile.md`.
+- Builds the SQLite FTS5 index and initializes the central compass (`INDEX.md`).
+- Creates the initial session handoff card.
+
+### Option 2: Direct Setup (No Node.js Required)
+
+If working in environments without Node.js or npm, copy `memory-vault/` and `AGENTS.md` into your project root and initialize directly with Python:
+
 ```bash
 python memory-vault/memory.py init
 ```
-This automatically:
-- Detects the project stack (e.g., Laravel, Next.js, Vite, Pest, pnpm) and populates `profile.md`.
-- Builds the local SQLite FTS5 database and Map of Content.
-- Creates `memory-vault/.gitignore` to ignore local binary caches (`.system/`).
-- Ensures `AGENTS.md` contains the autonomous memory directives without overwriting existing project rules.
 
-### Step 3: Execution
-Your AI coding assistant will now autonomously ground itself before tasks and persist verified outcomes after tasks.
+### Verification
+
+Check vault status and ensure the FTS5 index is active:
+
+```bash
+python memory-vault/memory.py status
+```
+
+Your AI assistant will now autonomously ground itself before taking action and record verified solutions upon completing tasks.
 
 ---
 
