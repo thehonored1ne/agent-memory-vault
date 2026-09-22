@@ -23,8 +23,14 @@ function copyDirRecursive(src, dest) {
     const srcPath = path.join(src, entry.name);
     const destPath = path.join(dest, entry.name);
 
-    // Skip local database binaries
+    // Skip local database binaries and caches
     if (entry.name === '.system' || entry.name === '__pycache__') {
+      continue;
+    }
+
+    // Skip repo-specific session, episode, and archive markdown files so new installations start clean
+    const parentName = path.basename(src);
+    if (['episodes', 'sessions', 'archive'].includes(parentName) && entry.name.endsWith('.md')) {
       continue;
     }
 
